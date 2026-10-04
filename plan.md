@@ -14,3 +14,7 @@ All content is grounded in the supplied CV. No unverified project metrics, techn
 
 ## Accessibility and performance
 Semantic sections, heading hierarchy, skip link, visible focus states, keyboard-accessible controls, alt text, lazy-load-ready image structure, reduced-motion support, no heavy runtime dependencies, and a static route manifest are included.
+
+
+## Final visibility audit
+The light theme is the default. Important text uses charcoal or white against controlled backgrounds; borders are black or high-contrast; the grid pattern remains visible but restrained; the profile image is framed on a contrasting lime card; project visuals use distinct blue, lime, charcoal and paper blocks; and selected cards use small offset shadows instead of gradients or glass effects. Mobile rules collapse the bento layout to one column without horizontal scrolling.
