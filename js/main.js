@@ -44,5 +44,39 @@
     revealItems.forEach(item => observer.observe(item));
   } else revealItems.forEach(item => item.classList.add('visible'));
 
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
+  if (finePointer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.addEventListener('pointermove', (event) => {
+      root.style.setProperty('--pointer-x', `${event.clientX}px`);
+      root.style.setProperty('--pointer-y', `${event.clientY}px`);
+      const a = document.querySelector('.ambient-a');
+      const b = document.querySelector('.ambient-b');
+      if (a) a.style.transform = `translate(${event.clientX * -.018}px, ${event.clientY * .012}px)`;
+      if (b) b.style.transform = `translate(${event.clientX * .012}px, ${event.clientY * -.01}px)`;
+    }, { passive: true });
+
+    document.querySelectorAll('[data-tilt]').forEach((card) => {
+      card.addEventListener('pointermove', (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - .5;
+        const y = (event.clientY - rect.top) / rect.height - .5;
+        card.style.transform = `perspective(900px) rotateX(${y * -2.5}deg) rotateY(${x * 3.5}deg)`;
+      });
+      card.addEventListener('pointerleave', () => { card.style.transform = ''; });
+    });
+  }
+
+  const sectionLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+  const trackedSections = sectionLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        sectionLinks.forEach((link) => link.classList.toggle('is-current', link.getAttribute('href') === `#${entry.target.id}`));
+      });
+    }, { rootMargin: '-30% 0px -55% 0px' });
+    trackedSections.forEach((section) => navObserver.observe(section));
+  }
+
   document.querySelector('#year').textContent = new Date().getFullYear();
 })();
