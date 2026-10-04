@@ -1,23 +1,16 @@
-# Portfolio plan
+# Portfolio design plan
 
-## Product direction
-A fast, one-page portfolio for Thiruselvan P that connects the CV to a clear personal story: building reliable web experiences, Linux automation and cloud-ready systems. It should be easy to scan on a phone, legible on larger screens, and honest about current experience.
+## Direction
+A premium developer portfolio built around **minimalism + subtle brutalism + responsive bento layout**. The page should feel authored by a developer, not like a generic template or a flashy landing page.
 
-## Design direction
-- **Movement:** editorial developer portfolio with a quiet technical / Swiss-inspired rhythm.
-- **Principles:** strong typographic hierarchy, generous whitespace, restrained color, and content that earns attention.
-- **Color:** paper and forest tones create a calm, credible base; acid lime marks action, availability and technical energy.
-- **Layout:** asymmetric editorial sections, a portrait-led hero, ruled project list, and a full-width experience band rather than a dense card grid.
-- **Signature elements:** TP circular wordmark, lime status dot, mono metadata labels and hand-drawn orbit lines around the portrait.
-- **Interaction:** subtle reveal-on-scroll, no distracting loops, accessible theme toggle, and a mobile drawer that closes after navigation.
-- **Typography:** Space Grotesk for headlines, DM Sans for body copy, DM Mono for labels and metadata.
-- **Brand essence:** a curious builder connecting interfaces to infrastructure; curious, dependable, practical.
-- **Voice:** direct and specific. Example lines: “I build systems that work in the real world.” and “Have a problem worth building?”
+## Design system
+The palette uses near-black, warm off-white and one acid-lime accent. Sharp borders, visible rules, monospace metadata and a fine grid provide the technical character. Motion is limited to small reveal, hover and active-navigation states, with reduced-motion support.
 
-## Structure
-- `index.html`: semantic single-page content and CV-grounded sections.
-- `css/style.css`: design tokens, desktop layout and components.
-- `css/responsive.css`: tablet and mobile adaptations.
-- `js/main.js`: progressive-enhancement interactions.
-- `assets/`: supplied portrait and converted CV PDF.
-- `public/manus-routes.json`: static route manifest.
+## Bento structure
+The hero uses one large introduction card, a portrait card and a current-focus card. About combines introduction, education, current focus and achievements. Projects use one featured card plus smaller systems, networking and product cards. Experience is a technical timeline, skills are grouped by purpose, and contact is a final high-contrast CTA.
+
+## Content integrity
+All content is grounded in the supplied CV. No unverified project metrics, technologies, users or live demos are claimed. The supplied portrait and converted CV PDF are reused. Project visuals are CSS technical placeholders because no project screenshots were supplied.
+
+## Accessibility and performance
+Semantic sections, heading hierarchy, skip link, visible focus states, keyboard-accessible controls, alt text, lazy-load-ready image structure, reduced-motion support, no heavy runtime dependencies, and a static route manifest are included.
